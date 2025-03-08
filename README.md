@@ -35,13 +35,18 @@ Other magic-related attributes **are not yet included but may be added in the fu
 1. Download & install Synthesis
 2. Enter the URL of this Github Repository
 3. Confirm and add the patcher to your Synthesis setup
-4. Run the patcher to apply the changes to your selected mods.  
+4. **Set Versioning Mode to "Match"**
+   - Go to Settings -> Versioning
+   - Select "Match" instead of "Latest" or "Profile"
+   - This ensures compatibility with the required Mutagen (v0.44.0) and Synthesis (v0.28.0) versions.
+5. Run the patcher to apply the changes to your selected mods.
 
 ## Requirements
 - **Skyrim SE / AE**
 - **[Synthesis](https://github.com/Mutagen-Modding/Synthesis)**
 - **[Requiem - The Roleplaying Overhaul](https://www.nexusmods.com/skyrimspecialedition/mods/60888)**
 - **.NET 6.0 or later**
+- **Uses an older version of Mutagen (v0.44.0) and Synthesis (v0.28.0)**
 
 ### Recommended
 - **[Requiem - Magic Redone](https://www.nexusmods.com/skyrimspecialedition/mods/59302)** (for the best balance)

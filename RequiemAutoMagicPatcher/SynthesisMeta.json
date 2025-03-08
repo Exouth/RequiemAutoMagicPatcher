@@ -1,0 +1,8 @@
+{
+  "Nickname": "RequiemAutoMagicPatcher",
+  "Visibility": "Visible",
+  "OneLineDescription": "Automatic patcher for balancing magic in Requiem",
+  "LongDescription": "This Synthesis patcher balances all selected magic mods in Requiem using aggregated statistical values from existing Requiem magic patches.",
+  "PreferredAutoVersioning": "Default",
+  "RequiredMods": []
+}
