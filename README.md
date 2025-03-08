@@ -15,6 +15,14 @@ While the patcher can be used **without** Requiem - Magic Redone, it is **highly
 - **Full customization – Every value can be manually adjusted in the settings**
 - **CSV Report Feature – Generates before/after records of all changes**
 
+## Current Coverage
+**Note:** The patcher does **not yet cover all aspects of magic balancing**. As of now, it only modifies:
+- **Gold value of spell tomes**
+- **Base cost of spells**
+- **SPIT Flags of spells** (Spell effect behavior settings)
+
+Other magic-related attributes **are not yet included but may be added in the future**.
+
 ## Customization
 - **Manually select which ESP mods should be patched**
 - **Adjust nearly every value**
