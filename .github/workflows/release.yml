@@ -1,0 +1,40 @@
+name: Create Synthesis Release
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Check if tag is in main
+        run: |
+          if [ "$(git branch --contains $GITHUB_REF)" != "  main" ]; then
+            echo "Tag is not on main branch. Skipping release."
+            exit 1
+          fi
+
+      - name: Generate .synth file
+        run: |
+          echo '{
+            "AddGitPatcher": {
+              "Url": "https://github.com/Exouth/RequiemAutoMagicPatcher",
+              "SelectedProject": "RequiemAutoMagicPatcher/RequiemAutoMagicPatcher.csproj"
+            }
+          }' > RequiemAutoMagicPatcher.synth
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            RequiemAutoMagicPatcher.synth
+          body: "Automated release for version ${{ github.ref_name }}"
+          tag_name: ${{ github.ref_name }}
+          draft: false
+          prerelease: false
