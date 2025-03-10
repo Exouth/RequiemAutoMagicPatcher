@@ -5,6 +5,9 @@ on:
     tags:
       - '*'
 
+permissions:
+  contents: write
+
 jobs:
   release:
     runs-on: ubuntu-latest
@@ -12,10 +15,17 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+        with:
+            fetch-depth: 0 
 
-      - name: Check if tag is in main
+      - name: Fetch all branches properly
         run: |
-          if [ "$(git branch --contains $GITHUB_REF)" != "  main" ]; then
+            git fetch origin main:refs/remotes/origin/main
+            git branch --track main origin/main || true
+
+      - name: Check if tag is on main branch
+        run: |
+          if ! git merge-base --is-ancestor $GITHUB_REF refs/heads/main; then
             echo "Tag is not on main branch. Skipping release."
             exit 1
           fi
@@ -38,3 +48,5 @@ jobs:
           tag_name: ${{ github.ref_name }}
           draft: false
           prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
